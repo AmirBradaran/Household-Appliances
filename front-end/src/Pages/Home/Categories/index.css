@@ -1,0 +1,15 @@
+.ctCardHome{
+    display: flex;
+    flex-direction: column;
+    margin: 1% 5%;
+}
+.ctCardHome h3{
+    text-align: right;
+    font-weight: bolder;
+} 
+.cardsHome{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row !important;
+    gap: 15px;
+}

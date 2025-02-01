@@ -22,7 +22,7 @@ export default function Navbar() {
       justifyContent={"center"}
       alignItems={"center"}
       width={"60%"}
-      sx={{height: "70px", py: 5 }}
+      sx={{height: "70px", py: 5 , borderBottomLeftRadius:15 , borderBottomRightRadius:15}}
     >
       <Typography
         sx={{ color: "white", fontSize: "22px", fontWeight: "bolder" }}
@@ -44,18 +44,18 @@ export default function Navbar() {
           }}
         />
       </Link>
-      <Link to={"/Cart"}>
-        <IconButton aria-label="cart">
+      <Link to={"/Cart"} >
+        <IconButton aria-label="cart" component={"carts"} >
           <Badge badgeContent={""} color="primary">
             <ShoppingBasketIcon sx={{ color: "white" }} />
           </Badge>
         </IconButton>
-        <IconButton aria-label="cart">
+        <IconButton aria-label="cart" component={"carts"} >
           <Badge badgeContent={""} color="primary">
             <AccountCircleIcon sx={{ color: "white" }} />
           </Badge>
         </IconButton>
-        <IconButton aria-label="cart">
+        <IconButton aria-label="cart" component={"carts"} >
           <Badge badgeContent={""} color="primary">
             <FavoriteBorderIcon sx={{ color: "white" }} />
           </Badge>

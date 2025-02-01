@@ -1,13 +1,14 @@
-#fullWidth{
-    outline: none;
-}
 nav{
     background:linear-gradient(to right , #ffffff , #DF1636);
-    align-items: center;
     position: sticky;
-    justify-content: center;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
     box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.577);
     left: 20%;
+}
+nav h3{
+    position: absolute;
+    right: 5%;
+}
+nav carts{
+    position: absolute;
+    left: 5%;
 }

@@ -4,9 +4,17 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.537);
     height: 40vh;
     width: 70%;
+    position: relative;
 }
 .slider img{
     width: 100%;
     height: 100%;
     border-radius: 15px;
+}
+.arrowSlider{
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+    display: flex;
+    gap: 5px;
 }

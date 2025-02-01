@@ -21,10 +21,11 @@ export default function Navbar() {
       gap={"20px"}
       justifyContent={"center"}
       alignItems={"center"}
-      sx={{ backgroundColor: "whitesmoke", height: "70px", py: 5 }}
+      width={"60%"}
+      sx={{height: "70px", py: 5 }}
     >
       <Typography
-        sx={{ color: "black", fontSize: "22px", fontWeight: "bolder" }}
+        sx={{ color: "white", fontSize: "22px", fontWeight: "bolder" }}
         component={"h3"}
       >
         دیجیتال شاپ
@@ -39,23 +40,24 @@ export default function Navbar() {
             boxShadow: "5px 5px 10px black",
             borderRadius: 10,
             border: "none",
+            background:"white"
           }}
         />
       </Link>
       <Link to={"/Cart"}>
         <IconButton aria-label="cart">
           <Badge badgeContent={""} color="primary">
-            <ShoppingBasketIcon sx={{ color: "black" }} />
+            <ShoppingBasketIcon sx={{ color: "white" }} />
           </Badge>
         </IconButton>
         <IconButton aria-label="cart">
           <Badge badgeContent={""} color="primary">
-            <AccountCircleIcon sx={{ color: "black" }} />
+            <AccountCircleIcon sx={{ color: "white" }} />
           </Badge>
         </IconButton>
         <IconButton aria-label="cart">
           <Badge badgeContent={""} color="primary">
-            <FavoriteBorderIcon sx={{ color: "black" }} />
+            <FavoriteBorderIcon sx={{ color: "white" }} />
           </Badge>
         </IconButton>
       </Link>

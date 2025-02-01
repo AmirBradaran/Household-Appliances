@@ -12,7 +12,7 @@ import ProductDetail from './Pages/ProductDetail'
 import Profile from './Pages/Profile'
 import Auth from './Pages/Auth'
 import NotFound from './Pages/NotFound'
-
+import "./App.css"
 export default function App() {
   const {token}=useSelector(state=>state.auth)
   return (

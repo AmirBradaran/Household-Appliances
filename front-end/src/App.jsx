@@ -1,7 +1,7 @@
 import React from 'react'
 import { Toaster } from 'react-hot-toast'
 import Footer from './Components/Footer'
-import { Box, CssBaseline,ThemeProvider } from '@mui/material'
+import { Box, CssBaseline } from '@mui/material'
 import Navbar from './Components/Navbar'
 import { Route, Routes,Navigate } from 'react-router-dom'
 import Home from './Pages/Home'
@@ -17,7 +17,6 @@ export default function App() {
   const {token}=useSelector(state=>state.auth)
   return (
     <>
-    <ThemeProvider theme={theme}>
     <CssBaseline/>
       <Navbar/>
       <Box sx={{backgroundColor:'background.default',minHeight:'70vh'}} component={'main'}>
@@ -32,7 +31,7 @@ export default function App() {
         </Routes>
       </Box>
       <Footer/>
-      </ThemeProvider>
+
     </>
   )
 }

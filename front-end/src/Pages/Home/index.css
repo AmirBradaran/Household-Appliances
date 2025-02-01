@@ -1,0 +1,8 @@
+.homeBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    margin: 2% 0;
+}

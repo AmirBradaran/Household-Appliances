@@ -12,6 +12,7 @@ import ProductDetail from './Pages/ProductDetail'
 import Profile from './Pages/Profile'
 import Auth from './Pages/Auth'
 import NotFound from './Pages/NotFound'
+import AboutUs from './Pages/AboutUs'
 import "./App.css"
 export default function App() {
   const {token}=useSelector(state=>state.auth)
@@ -25,8 +26,9 @@ export default function App() {
           <Route path='/cart' element={token?<Cart/>:<Navigate to={'/auth'}/>}/>
           <Route path='/products/:categoryId/:categoryName' element={<ProductsCards/>}/>
           <Route path='/product-details/:id/:name' element={<ProductDetail/>}/>
-          <Route path='/auth' element={!token?<Navigate to={'/profile'}/>:<Auth/>}/>
+          <Route path='/auth' element={token?<Navigate to={'/profile'}/>:<Auth/>}/>
           <Route path='/profile' element={token?<Profile/>:<Navigate to={'/auth'}/>}/>
+          <Route path='/about-us' element={<AboutUs/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
       </Box>

@@ -1,9 +1,9 @@
 .slider{
     border: 1px solid black;
-    border-radius: 15px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.537);
-    height: 40vh;
-    width: 70%;
+    border-radius: 10px;
+    box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.537);
+    height: 60vh;
+    width: 90%;
     position: relative;
 }
 .slider img{
@@ -13,8 +13,8 @@
 }
 .arrowSlider{
     position: absolute;
-    bottom: 2%;
-    left: 2%;
+    bottom: 5%;
+    left: 2.5%;
     display: flex;
     gap: 5px;
 }

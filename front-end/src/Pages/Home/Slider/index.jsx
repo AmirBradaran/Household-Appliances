@@ -16,10 +16,10 @@ export default function Slider() {
       <img src="" alt="" className="show" />
       <div className="arrowSlider">
       <IconButton aria-label="cart" onClick={handleClickPrev}>
-        <ArrowCircleLeftIcon sx={{ color: "black" , fontSize:35 }}/>
+        <ArrowCircleLeftIcon sx={{ color: "black" , fontSize:40 }}/>
       </IconButton>
       <IconButton aria-label="cart" onClick={handleClickNext}>
-        <ArrowCircleRightIcon sx={{ color: "black" , fontSize:35 }} />
+        <ArrowCircleRightIcon sx={{ color: "black" , fontSize:40 }} />
       </IconButton>
       </div>
     </section>

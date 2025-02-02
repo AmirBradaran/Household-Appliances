@@ -1,61 +1,75 @@
-import {
-  Badge,
-  Box,
-  Button,
-  IconButton,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Badge, IconButton, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import SearchIcon from "@mui/icons-material/Search";
 import "./index.css";
 export default function Navbar() {
   return (
     <Stack
       component={"nav"}
-      flexDirection={"row-reverse"}
-      gap={"20px"}
-      justifyContent={"center"}
-      alignItems={"center"}
-      width={"60%"}
-      sx={{height: "70px", py: 5 , borderBottomLeftRadius:15 , borderBottomRightRadius:15}}
+      flexDirection={"row"}
+      width={"100%"}
+      sx={{
+        height: "70px",
+        py: 5,
+        position: "relative",
+        boxShadow: "2px 2px 10px 5px rgba(0, 0, 0, 0.577);",
+        background: "#DF9146",
+      }}
     >
-      <Typography
-        sx={{ color: "white", fontSize: "22px", fontWeight: "bolder" }}
-        component={"h3"}
-      >
-        دیجیتال شاپ
-      </Typography>
       <Link to={"/"}>
-        <TextField
-          fullWidth
-          label="....جستجو"
-          id="fullWidth"
+        <Typography
           sx={{
-            width: 500,
-            boxShadow: "5px 5px 10px black",
-            borderRadius: 10,
-            border: "none",
-            background:"white"
+            color: "white",
+            fontSize: "22px",
+            fontWeight: "bolder",
+            position: "absolute",
+            left: "5%",
+            top: "30%",
+            textDecoration: "none",
+            textTransform: "capitalize",
           }}
-        />
+          component={"h3"}
+        >
+          خانه آرا
+        </Typography>
       </Link>
-      <Link to={"/Cart"} >
-        <IconButton aria-label="cart" component={"carts"} >
+      <Link to={"/product-cards"}>
+        <IconButton
+          aria-label="cart"
+          component={"carts"}
+          sx={{ position: "absolute", right: "16%", top: "30%" }}
+        >
+          <SearchIcon sx={{ color: "white" }} />
+        </IconButton>
+      </Link>
+      <Link to={"/Cart"}>
+        <IconButton
+          aria-label="cart"
+          component={"carts"}
+          sx={{ position: "absolute", right: "4%", top: "30%" }}
+        >
           <Badge badgeContent={""} color="primary">
             <ShoppingBasketIcon sx={{ color: "white" }} />
           </Badge>
         </IconButton>
-        <IconButton aria-label="cart" component={"carts"} >
+        <IconButton
+          aria-label="cart"
+          component={"carts"}
+          sx={{ position: "absolute", right: "8%", top: "30%" }}
+        >
           <Badge badgeContent={""} color="primary">
             <AccountCircleIcon sx={{ color: "white" }} />
           </Badge>
         </IconButton>
-        <IconButton aria-label="cart" component={"carts"} >
+        <IconButton
+          aria-label="cart"
+          component={"carts"}
+          sx={{ position: "absolute", right: "12%", top: "30%" }}
+        >
           <Badge badgeContent={""} color="primary">
             <FavoriteBorderIcon sx={{ color: "white" }} />
           </Badge>

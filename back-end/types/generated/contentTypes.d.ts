@@ -442,6 +442,39 @@ export interface ApiProductDetailProductDetail
   };
 }
 
+export interface ApiProductsCardTypeProductsCardType
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'products_card_types';
+  info: {
+    displayName: 'productsCardType';
+    pluralName: 'products-card-types';
+    singularName: 'products-card-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::products-card-type.products-card-type'
+    > &
+      Schema.Attribute.Private;
+    products_card: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::products-card.products-card'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    typeTitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProductsCardProductsCard
   extends Struct.CollectionTypeSchema {
   collectionName: 'products_cards';
@@ -473,8 +506,44 @@ export interface ApiProductsCardProductsCard
       'oneToOne',
       'api::product-detail.product-detail'
     >;
+    products_card_type: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::products-card-type.products-card-type'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     titleProduct: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSliderSlider extends Struct.CollectionTypeSchema {
+  collectionName: 'sliders';
+  info: {
+    displayName: 'slider';
+    pluralName: 'sliders';
+    singularName: 'slider';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    imgSlider: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::slider.slider'
+    > &
+      Schema.Attribute.Private;
+    product_detail: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::product-detail.product-detail'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -992,7 +1061,9 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::category.category': ApiCategoryCategory;
       'api::product-detail.product-detail': ApiProductDetailProductDetail;
+      'api::products-card-type.products-card-type': ApiProductsCardTypeProductsCardType;
       'api::products-card.products-card': ApiProductsCardProductsCard;
+      'api::slider.slider': ApiSliderSlider;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

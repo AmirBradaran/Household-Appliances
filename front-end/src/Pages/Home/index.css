@@ -1,9 +1,10 @@
 .homeBody{
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+    direction: rtl;
     gap: 15px;
     margin:0;
     padding: 2.5% 0;
+    background-color: #feecd9;
 }

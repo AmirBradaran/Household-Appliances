@@ -11,28 +11,29 @@ export default function Navbar() {
     <Stack
       component={"nav"}
       flexDirection={"row"}
-      width={"100%"}
+      width={"70%"}
       sx={{
         height: "70px",
         py: 5,
         position: "relative",
         boxShadow: "2px 2px 10px 5px rgba(0, 0, 0, 0.577);",
         background: "#DF9146",
+        left:"15%",
+        borderBottomRightRadius:"10px",
+        borderBottomLeftRadius:"10px"
       }}
     >
       <Link to={"/"}>
         <Typography
           sx={{
             color: "white",
-            fontSize: "22px",
+            fontSize:"30px",
             fontWeight: "bolder",
             position: "absolute",
             left: "5%",
-            top: "30%",
+            top: "25%",
             textDecoration: "none",
-            textTransform: "capitalize",
           }}
-          component={"h3"}
         >
           خانه آرا
         </Typography>

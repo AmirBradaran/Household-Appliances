@@ -1,6 +1,11 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  text-transform:capitalize;
+  font-family: IRANSans;
+}
+@font-face {
+  font-family: IRANSans;
+  src: url(./assets/font/vazir-font-v16.1.0/Vazir-Medium.ttf) format("ttf"),
+    url(./assets/font/vazir-font-v16.1.0/Vazir-Medium.woff) format("woff"),
+    url(./assets/font/vazir-font-v16.1.0/Vazir-Medium.woff2) format("woff2"),
 }

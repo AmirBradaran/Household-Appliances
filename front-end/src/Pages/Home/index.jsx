@@ -1,11 +1,11 @@
 import React from 'react'
 import "./index.css"
-import Slider from './Slider'
-import Categories from './Categories'
-import ProductCards from './ProductCards'
+import Slider from './SliderHm'
+import Categories from './CategoriesHm'
+import ProductCards from './ProductCardsHm'
 export default function Home() {
   return (
-    <body className='homeBody'>
+    <body className='homeBody' >
     <Slider/>
     <Categories/>
     <ProductCards/>

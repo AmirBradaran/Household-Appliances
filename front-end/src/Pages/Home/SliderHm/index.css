@@ -5,6 +5,7 @@
     height: 60vh;
     width: 90%;
     position: relative;
+    transform: translateX(-5%);
 }
 .slider img{
     width: 100%;

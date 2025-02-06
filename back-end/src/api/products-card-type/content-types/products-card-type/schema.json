@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products_card_types",
+  "info": {
+    "singularName": "products-card-type",
+    "pluralName": "products-card-types",
+    "displayName": "productsCardType"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "products_card": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::products-card.products-card",
+      "inversedBy": "products_card_type"
+    },
+    "typeTitle": {
+      "type": "string"
+    }
+  }
+}

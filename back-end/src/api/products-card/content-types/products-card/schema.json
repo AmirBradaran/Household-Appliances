@@ -39,6 +39,12 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "products_cards"
+    },
+    "products_card_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::products-card-type.products-card-type",
+      "mappedBy": "products_card"
     }
   }
 }

@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
-import "./index.css";
+import InfoIcon from '@mui/icons-material/Info';
+import LoginIcon from '@mui/icons-material/Login';
+import StyleIcon from '@mui/icons-material/Style';
 
 export default function Footer() {
   return (
@@ -31,49 +33,59 @@ export default function Footer() {
           راه های سریع
         </Typography>
         <Link to={"/about-us"}>
-          <Typography
+          <Stack
             sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
               color: "white",
-              fontWeight: "bolder",
-              fontsize: "30px",
-              textDecorationLine: "none",
-              lineHeight: "30px",
             }}
           >
-            درباره ما
-          </Typography>
+            <IconButton>
+              <InfoIcon
+                sx={{ color: "white", fontsize: "35px", fontWeight: "bolder" }}
+              />
+            </IconButton>
+            <Typography>درباره ما</Typography>
+          </Stack>
         </Link>
         <Link to={"/auth"}>
-          <Typography
-            level="h3"
+          <Stack
             sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
               color: "white",
-              fontWeight: "bolder",
-              fontsize: "30px",
-              textDecorationLine: "none",
-              lineHeight: "30px",
             }}
           >
-            ورود
-          </Typography>
+            <IconButton>
+              <LoginIcon
+                sx={{ color: "white", fontsize: "35px", fontWeight: "bolder" }}
+              />
+            </IconButton>
+            <Typography>ورود</Typography>
+          </Stack>
         </Link>
         <Link to={"/products/:categoryId/:category"}>
-          <Typography
-            level="h3"
+          <Stack
             sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
               color: "white",
-              fontWeight: "bolder",
-              fontsize: "30px",
-              textDecorationLine: "none",
-              lineHeight: "30px",
             }}
           >
-            محصولات
-          </Typography>
+            <IconButton>
+              <StyleIcon
+                sx={{ color: "white", fontsize: "35px", fontWeight: "bolder" }}
+              />
+            </IconButton>
+            <Typography>محصولات</Typography>
+          </Stack>
         </Link>
       </Stack>
       <Stack sx={{}}>
-        <Typography variant="h6" sx={{ color: "white", fontWeight: "bolder" }}>
+        <Typography variant="h6" sx={{ color: "white", fontWeight: "bolder" , pb:"15px" }}>
           راه های ارتباطی
         </Typography>
         <Link to={"/"}>

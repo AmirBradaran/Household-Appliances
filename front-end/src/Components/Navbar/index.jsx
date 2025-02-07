@@ -16,8 +16,8 @@ export default function Navbar() {
         height: "70px",
         py: 5,
         position: "relative",
-        boxShadow: "2px 2px 10px 5px rgba(0, 0, 0, 0.577);",
-        background: "#DF9146",
+        boxShadow: "1px 1px 5px 5px rgba(0, 0, 0, 0.577);",
+        background: "#071739",
         left:"15%",
         borderBottomRightRadius:"10px",
         borderBottomLeftRadius:"10px"
@@ -44,7 +44,7 @@ export default function Navbar() {
           component={"carts"}
           sx={{ position: "absolute", right: "16%", top: "30%" }}
         >
-          <SearchIcon sx={{ color: "white" }} />
+          <SearchIcon sx={{ color: "white" , fontWeight:"bolder" , fontSize:"30px" }} />
         </IconButton>
       </Link>
       <Link to={"/Cart"}>
@@ -54,7 +54,7 @@ export default function Navbar() {
           sx={{ position: "absolute", right: "4%", top: "30%" }}
         >
           <Badge badgeContent={""} color="primary">
-            <ShoppingBasketIcon sx={{ color: "white" }} />
+            <ShoppingBasketIcon sx={{ color: "white" , fontWeight:"bolder" , fontSize:"30px" }} />
           </Badge>
         </IconButton>
         <IconButton
@@ -63,7 +63,7 @@ export default function Navbar() {
           sx={{ position: "absolute", right: "8%", top: "30%" }}
         >
           <Badge badgeContent={""} color="primary">
-            <AccountCircleIcon sx={{ color: "white" }} />
+            <AccountCircleIcon sx={{ color: "white" , fontWeight:"bolder" , fontSize:"30px" }} />
           </Badge>
         </IconButton>
         <IconButton
@@ -72,7 +72,7 @@ export default function Navbar() {
           sx={{ position: "absolute", right: "12%", top: "30%" }}
         >
           <Badge badgeContent={""} color="primary">
-            <FavoriteBorderIcon sx={{ color: "white" }} />
+            <FavoriteBorderIcon sx={{ color: "white" , fontWeight:"bolder" , fontSize:"30px" }} />
           </Badge>
         </IconButton>
       </Link>

@@ -11,14 +11,29 @@ export default function ProductCards() {
           mr: 12.5,
           fontSize: "30px",
           fontWeight: "bolder",
-          borderBottom: "4px dashed #4C453D",
-          width: "12.5%",
-          color:"#18191E"
+          width: "100%",
+          color: "#18191E",
         }}
       >
         محبوب ترین ها
       </Typography>
-      <Cards />
+      <Stack
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          mx: 12,
+          my: 2.5,
+          alignItems: "center",
+          justifyContent: "start",
+        }}
+      >
+        <Cards />
+        <Cards />
+        <Cards />
+        <Cards />
+        <Cards />
+        <Cards />
+      </Stack>
     </Stack>
   );
 }

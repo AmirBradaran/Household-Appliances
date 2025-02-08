@@ -1,72 +1,76 @@
-import { Badge, IconButton, Stack, TextField, Typography } from "@mui/material";
+import { Badge, Box, IconButton, Stack, Typography } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import "../../index.css";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import SearchIcon from "@mui/icons-material/Search";
+import ShuffleIcon from "@mui/icons-material/Shuffle";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import SearchIcon from '@mui/icons-material/Search';
 export default function Navbar() {
+  const { token } = useSelector((state) => state.auth);
+  const cartLength = useSelector((state) => state.cart.items).length;
+  const dispatch = useDispatch();
   return (
     <Stack
-      component={"nav"}
-      flexDirection={"row"}
-      width={"70%"}
       sx={{
-        height: "70px",
-        py: 5,
         position: "relative",
-        boxShadow: "1px 1px 5px 5px rgba(0, 0, 0, 0.577);",
-        background: "#071739",
-        left: "15%",
-        borderBottomRightRadius: "10px",
-        borderBottomLeftRadius: "10px",
+        background:
+          "linear-gradient(to right, var(--forth-color), var(--six-color)) ",
+        width: "90%",
+        height: "10vh",
+        transform: "translateX(5%)",
+        borderBottomLeftRadius: "15px",
+        borderBottomRightRadius: "15px",
+        boxShadow: "1px 1px 5px 5px gray",
       }}
     >
-      <Link to={"/"}>
-        <Typography
-          sx={{
-            color: "white",
-            fontSize: "30px",
-            fontWeight: "bolder",
-            position: "absolute",
-            left: "5%",
-            top: "25%",
-            textDecoration: "none",
-          }}
-        >
-          خانه آرا
-        </Typography>
-      </Link>
-      <Stack sx={{ display: "flex" , flexDirection:"row" , alignItems:"center" , position:"absolute" , right:50 , top:25 , gap:0}}>
-        <Link to={"/product-cards"}>
-          <IconButton aria-label="cart" component={"carts"}>
-            <SearchIcon
-              sx={{ color: "white", fontWeight: "bolder", fontSize: "30px" }}
-            />
+      <Stack sx={{display:"flex" , flexDirection:"row" , alignItems:"center" , gap:0.5 , position:"absolute" , left:10 , top:"10%"}}>
+        <Link to={"/cart"}>
+          <IconButton aria-label="cart">
+            <Badge badgeContent={cartLength} color="primary" >
+              <CardGiftcardIcon
+                sx={{
+                  fontSize:"35px",
+                  color: "white",
+                  background:"linear-gradient(to right, var(--seven-color), var(--fifth-color))",
+                  borderRadius:"100%",
+                  padding:1.25,
+                  height:"60px",
+                  width:"60px"
+                }}
+              />
+            </Badge>
           </IconButton>
         </Link>
-        <Link to={"/Cart"}>
-        <Stack sx={{ display: "flex" , flexDirection:"row" , alignItems:"center" , gap:0  }}>
-          <IconButton aria-label="cart" component={"carts"}>
-            <Badge badgeContent={"1"} color="primary">
-              <ShoppingBasketIcon
-                sx={{ color: "white", fontWeight: "bolder", fontSize: "30px"}}
-              />
-            </Badge>
-          </IconButton>
-          <IconButton aria-label="cart" component={"carts"}>
-              <AccountCircleIcon
-                sx={{ color: "white", fontWeight: "bolder", fontSize: "30px" }}
-              />
-          </IconButton>
-          <IconButton aria-label="cart" component={"carts"}>
-            <Badge badgeContent={""} color="primary">
-              <FavoriteBorderIcon
-                sx={{ color: "white", fontWeight: "bolder", fontSize: "30px" }}
-              />
-            </Badge>
-          </IconButton>
+        <Link to={""}>
+        <IconButton aria-label="like">
+          <FavoriteBorderIcon sx={{ color: "white", fontSize: "35px"}} />
+        </IconButton>
+        </Link>
+        <Link>
+        <IconButton aria-label="search">
+          <SearchIcon sx={{ color: "white", fontSize: "35px" }} />
+        </IconButton>
+        </Link>
         </Stack>
+      <Link to={"/"}>
+        <DarkModeIcon
+          sx={{
+            color: "white",
+            fontSize: "50px",
+            position: "absolute",
+            top: "22.5%",
+            left: "49.5%",
+          }}
+        />
+      </Link>
+      <Stack sx={{position:"absolute" , right:10 , top:"25%" , direction:"rtl" , display:"flex" , alignItems:"center"}}>
+        <Link to={"/about-us"} style={{textDecoration:"none" , color:"var(--first-color)"}}>
+        <Typography sx={{fontSize:"20px" , fontWeight:"bolder"}}>
+          درباره ما
+        </Typography>
         </Link>
       </Stack>
     </Stack>

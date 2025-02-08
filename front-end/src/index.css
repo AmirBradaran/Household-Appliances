@@ -9,3 +9,12 @@
     url(./assets/font/vazir-font-v16.1.0/Vazir-Medium.woff) format("woff"),
     url(./assets/font/vazir-font-v16.1.0/Vazir-Medium.woff2) format("woff2"),
 }
+:root{
+  --first-color:#32127A;
+  --forth-color:#7714B0;
+  --second-color:#0067A5;
+  --third-color:#00A693;
+  --fifth-color:#D99058;
+  --seven-color:#FF7F5F;
+  --six-color:rgb(240, 240, 240);
+}

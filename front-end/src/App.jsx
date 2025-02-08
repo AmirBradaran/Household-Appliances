@@ -17,10 +17,10 @@ import "./App.css"
 export default function App() {
   const {token}=useSelector(state=>state.auth)
   return (
-    <Stack sx={{backgroundColor:" #E2E3DE"}}>
+    <Stack sx={{backgroundColor:""}}>
     <CssBaseline/>
       <Navbar/>
-      <Box sx={{backgroundColor:'#E2E3DE',minHeight:'70vh'}} component={'main'}>
+      <Box sx={{backgroundColor:'',minHeight:'70vh'}} component={'main'}>
         <Routes >
           <Route exact path='/' element={<Home/>}/>
           <Route path='/cart' element={token?<Cart/>:<Navigate to={'/auth'}/>}/>

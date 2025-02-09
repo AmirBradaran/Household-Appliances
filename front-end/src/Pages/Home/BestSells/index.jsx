@@ -30,18 +30,19 @@ const BestSells = () => {
   return (
     <Box sx={{ direction: "rtl", padding: 4, position: "relative" }}>
       <Typography
-    variant="h4"
-    fontWeight="bold"
-    sx={{
-      color: "var(--primary-color)",
-      borderBottom: "3px solid var(--first-color)",
-      paddingBottom: "5px",
-      display: "inline-block",
-    }}
-  >
-    بهترین‌ها
-  </Typography>
+        variant="h4"
+        fontWeight="bold"
+        sx={{
+          color: "var(--primary-color)",
+          borderBottom: "3px solid var(--first-color)",
+          paddingBottom: "5px",
+          display: "inline-block",
+        }}
+      >
+        بهترین‌ها
+      </Typography>
       <Swiper
+      style={{padding:"1% 0"}}
         modules={[Navigation, Pagination]}
         spaceBetween={5}
         slidesPerView={7}
@@ -80,6 +81,7 @@ const BestSells = () => {
                 alignItems: "center",
                 backgroundColor: theme.palette.background.paper,
                 boxShadow: theme.shadows[1],
+                boxShadow:"5px 4px 5px 0px gray"
               }}
             >
               <img src="" alt="" style={{ height: "120px", width: "100%" }} />

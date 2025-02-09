@@ -37,11 +37,13 @@ const BestSells = () => {
       borderBottom: "3px solid var(--first-color)",
       paddingBottom: "5px",
       display: "inline-block",
+      
     }}
   >
     تازه ترین ها
   </Typography>
       <Swiper
+        style={{padding:"1% 0"}}
         modules={[Navigation, Pagination]}
         spaceBetween={5}
         slidesPerView={7}
@@ -68,7 +70,6 @@ const BestSells = () => {
           <SwiperSlide key={index}>
             <Box
               sx={{
-                border: `1px solid var(--six-color)`,
                 borderRadius: 2,
                 padding: 2,
                 textAlign: "center",
@@ -79,7 +80,7 @@ const BestSells = () => {
                 justifyContent: "space-between",
                 alignItems: "center",
                 backgroundColor: theme.palette.background.paper,
-                boxShadow: theme.shadows[1],
+                boxShadow:"5px 4px 5px 0px gray"
               }}
             >
               <img src="" alt="" style={{ height: "120px", width: "100%" }} />

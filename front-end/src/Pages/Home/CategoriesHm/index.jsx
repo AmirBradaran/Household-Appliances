@@ -3,10 +3,10 @@ import { Box, Typography, Paper, Grid } from '@mui/material';
 
 const NumberedCategories = () => {
   const categories = [
-    { title: 'هدفون' },
-    { title: 'هدست' },
-    { title: 'هندزفری' },
-    { title: 'لوازم جانبی' },
+    { title: 'هدفون', hoverColor: '#FF7F5F' },
+    { title: 'هدست', hoverColor: '#0067A5' },  // Blue
+    { title: 'هندزفری', hoverColor: '#28a745' }, // Green
+    { title: 'لوازم جانبی', hoverColor: '#7714B0' },
   ];
 
   return (
@@ -25,8 +25,9 @@ const NumberedCategories = () => {
                 textAlign: 'center',
                 transition: "0.3s",
                 cursor: "pointer",
+                backgroundColor: "#fff",
                 "&:hover": {
-                  backgroundColor: "#0067A5",
+                  backgroundColor: category.hoverColor,
                   color: "#fff",
                   transform: "scale(1.05)",
                   boxShadow: "0px 4px 15px rgba(0,0,0,0.2)",

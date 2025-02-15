@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from "react";
-import "../../index.css"
 import {
   Badge,
   Box,
@@ -14,7 +13,7 @@ import {
   List,
   ListItem,
   Divider,
-  styled
+  styled,
 } from "@mui/material";
 import {
   DarkMode,
@@ -23,7 +22,6 @@ import {
   Search,
   Menu as MenuIcon,
   Close,
-  Translate
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -34,8 +32,8 @@ const StyledLink = styled(Link)(({ theme }) => ({
   transition: "all 0.3s ease",
   "&:hover": {
     color: theme.palette.secondary.main,
-    transform: "translateY(-2px)"
-  }
+    transform: "translateY(-2px)",
+  },
 }));
 
 const Navbar = () => {
@@ -43,23 +41,25 @@ const Navbar = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [menuAnchor, setMenuAnchor] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  
+
   const cartLength = useSelector((state) => state.cart?.items?.length) || 0;
-  const { token } = useSelector((state) => state.auth) || {};
+  const { token } = useSelector((state) => state.auth);
 
-  const navItems = useMemo(() => [
-    { label: "دسته بندی ها", type: "menu" },
-    { label: "ورود", path: "/auth" },
-    { label: "مجله ها", path: "/magazines" },
-    { label: "درباره ما", path: "/about-us" }
-  ], []);
+  const navItems = useMemo(
+    () => [
+      { label: "دسته بندی ها", type: "menu" },
+      { label: "درباره ما", path: "/about-us" },
+      { label: "ورود", path: "/auth" },
+      { label: "مجله ها", path: "/magazines" },
+      { label: "خانه", path: "/" },
+    ],
+    []
+  );
 
-  const categories = useMemo(() => [
-    "لوازم جانبی",
-    "هدفون",
-    "هدست",
-    "هندزفری"
-  ], []);
+  const categories = useMemo(
+    () => ["لوازم جانبی", "لوازم آشپزخانه", "لوازم اتاق", "لوازم نشیمنگاه"],
+    []
+  );
 
   const handleMenuOpen = (event) => {
     setMenuAnchor(event.currentTarget);
@@ -72,8 +72,8 @@ const Navbar = () => {
   const toggleDrawer = (open) => (event) => {
     if (
       event &&
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
     ) {
       return;
     }
@@ -81,8 +81,8 @@ const Navbar = () => {
   };
 
   const renderDesktopNav = () => (
-    <Box sx={{ display: "flex", gap: 4, alignItems: "center" }}>
-      {navItems.map((item) => (
+    <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+      {navItems.map((item) =>
         item.type === "menu" ? (
           <Button
             key={item.label}
@@ -91,17 +91,19 @@ const Navbar = () => {
               color: "common.white",
               fontSize: "1.1rem",
               fontWeight: 700,
-              "&:hover": { color: "secondary.main" }
+              "&:hover": { color: "var(--fifth-color)" },
             }}
           >
             {item.label}
           </Button>
         ) : (
           <StyledLink key={item.label} to={item.path}>
-            <Typography variant="subtitle1">{item.label}</Typography>
+            <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+              {item.label}
+            </Typography>
           </StyledLink>
         )
-      ))}
+      )}
     </Box>
   );
 
@@ -110,7 +112,7 @@ const Navbar = () => {
       <IconButton
         onClick={toggleDrawer(true)}
         aria-label="open navigation menu"
-        sx={{ color: "common.white" , position:"absolute" , right:"45px" }}
+        sx={{ color: "common.white", position: "absolute", right: "0px" }}
       >
         <MenuIcon fontSize="large" />
       </IconButton>
@@ -123,9 +125,10 @@ const Navbar = () => {
         sx={{
           "& .MuiDrawer-paper": {
             width: 280,
-            background:"linear-gradient(135deg, var(--forth-color), var(--third-color))",
-            color: "common.white"
-          }
+            background:
+              "linear-gradient(135deg, var(--first-color), var(--six-color))",
+            color: "common.white",
+          },
         }}
       >
         <Box
@@ -143,7 +146,9 @@ const Navbar = () => {
             {navItems.map((item) => (
               <ListItem key={item.label} sx={{ py: 1.5 }}>
                 <StyledLink to={item.path} sx={{ width: "100%" }}>
-                  <Typography variant="h6">{item.label}</Typography>
+                  <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                    {item.label}
+                  </Typography>
                 </StyledLink>
               </ListItem>
             ))}
@@ -152,12 +157,14 @@ const Navbar = () => {
           <Divider sx={{ borderColor: "rgba(255,255,255,0.2)" }} />
 
           <List>
-            <Typography variant="h6" sx={{ px: 2, py: 1.5 }}>
+            <Typography variant="h6" sx={{ px: 2, py: 1.5, fontWeight: 700 }}>
               دسته بندی ها
             </Typography>
             {categories.map((category) => (
               <ListItem key={category} sx={{ py: 1 }}>
-                <Typography variant="body1">{category}</Typography>
+                <Typography variant="body1" sx={{ fontWeight: 700 }}>
+                  {category}
+                </Typography>
               </ListItem>
             ))}
           </List>
@@ -171,67 +178,98 @@ const Navbar = () => {
       component="nav"
       sx={{
         position: "relative",
+        border: "none",
         top: 0,
-        translate:"12.5% 0",
-        width: "80%",
+        translate: "6% 0",
+        width: "90%",
+        height:"150px",
         zIndex: 1200,
-        background:"linear-gradient(135deg, var(--forth-color), var(--third-color))",
-        boxShadow: 3,
+        background:
+          "linear-gradient(to bottom , var(--first-color) 65% , white)",
         py: 2,
-        borderBottomRightRadius:10,
-        borderBottomLeftRadius:10,
+        borderBottomRightRadius: "50%",
+        borderBottomLeftRadius: "50%",
       }}
     >
       <Box
         sx={{
           maxWidth: 1280,
           margin: "0 auto",
-          px: { xs: 2, md: 4 },
+          px: { xs: 0, md: 4 },
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          position:"relative"
+          position: "relative",
         }}
       >
-        <Box sx={{ display: "flex", gap: 0, alignItems: "center" , position:"absolute" , left:"20px" }}>
+        <Box
+          sx={{
+            display: "flex",
+            gap: 0,
+            alignItems: "center",
+            position: "absolute",
+            left: "1%",
+          }}
+        >
           <StyledLink to="/cart" aria-label="shopping cart">
-            <IconButton sx={{ p: 1 }}>
+            <IconButton
+              sx={{
+                p: 1.5,
+                background: "none",
+                ":hover": {
+                  background:"none",
+                },
+              }}
+            >
               <Badge badgeContent={cartLength} color="secondary">
                 <CardGiftcard sx={{ fontSize: 32, color: "common.white" }} />
               </Badge>
             </IconButton>
           </StyledLink>
 
-          <StyledLink to="/wishlist" aria-label="wishlist">
+          <StyledLink to="/favorites" aria-label="favorite">
             <IconButton sx={{ p: 1 }}>
               <FavoriteBorder sx={{ fontSize: 32, color: "common.white" }} />
             </IconButton>
           </StyledLink>
+          <Link to={"/products/:categoryId/:category"}>
+            <IconButton
+              aria-label="search"
+              sx={{
+                color: "common.white",
+              }}
+            >
+              <Search sx={{ fontSize: 32 }} />
+            </IconButton>
+          </Link>
         </Box>
 
-        <StyledLink to="/" sx={{ mx: 2 }}>
-          <DarkMode sx={{ fontSize: 48, color: "common.white" }} />
+        <StyledLink to="/">
+          <DarkMode sx={{fontSize:"4.5rem"}}/>
         </StyledLink>
-
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2 , position:"absolute" , right:"5%" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 2,
+            position: "absolute",
+            right: "1%",
+          }}
+        >
           {isMobile ? renderMobileNav() : renderDesktopNav()}
-
-          <IconButton aria-label="search" sx={{ color: "common.white" , position:"absolute" , right:"-15%" }}>
-            <Search sx={{ fontSize: 32 }} />
-          </IconButton>
         </Box>
       </Box>
-
       <Menu
         anchorEl={menuAnchor}
         open={Boolean(menuAnchor)}
         onClose={handleMenuClose}
         MenuListProps={{
           sx: {
-            background:"linear-gradient(135deg, var(--forth-color), var(--third-color))",
+            background:
+              "linear-gradient(135deg, var(--second-color) 50%, var(--third-color))",
             color: "common.white",
-            minWidth: 180
-          }
+            minWidth: 180,
+          },
         }}
       >
         {categories.map((category) => (
@@ -239,12 +277,13 @@ const Navbar = () => {
             key={category}
             onClick={handleMenuClose}
             sx={{
-              background:"",
-              "&:hover": { bgcolor: "white" , color:"black" },
-              py: 1.5
+              "&:hover": { bgcolor: "white", color: "black" },
+              py: 1.5,
             }}
           >
-            <Typography variant="body1">{category}</Typography>
+            <Typography variant="body1" sx={{ fontWeight: 700 }}>
+              {category}
+            </Typography>
           </MenuItem>
         ))}
       </Menu>

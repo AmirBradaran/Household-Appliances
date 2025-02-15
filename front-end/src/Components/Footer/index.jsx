@@ -15,6 +15,7 @@ import {
   Instagram,
   LinkedIn,
   Translate,
+  DarkMode,
 } from "@mui/icons-material";
 import DarkModeIcon from "@mui/icons-material/Bedtime";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -24,12 +25,14 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        background:
-          "linear-gradient(to top, var(--forth-color), var(--white-color))",
+        background: "var(--first-color)",
         color: "white",
         padding: 6,
         marginTop: "auto",
         direction: "rtl",
+        borderTopRightRadius: "20%",
+        borderTopLeftRadius: "20%",
+        zIndex: 1005,
       }}
     >
       <Grid container spacing={4}>
@@ -37,19 +40,19 @@ const Footer = () => {
           <Typography
             variant="h4"
             gutterBottom
-            sx={{ fontWeight: "bold", color: "var(--first-color)" }}
+            sx={{ fontWeight: "bold", color: "var(--white-color)" }}
           >
-            صدا پلاس
+            خانه آرا{" "}
           </Typography>
-          <Typography variant="title" sx={{ color: "var(--first-color)" }}>
-            هدفون‌هایتان، دنیای شما را تغییر می‌دهند
+          <Typography sx={{ color: "var(--white-color)", fontSize: "1.25rem" }}>
+            چیدمان خانه تان ، آرامش شمارا تغییر میدهد{" "}
           </Typography>
         </Grid>
         <Grid item xs={6} md={2}>
           <Typography
             variant="h6"
             gutterBottom
-            sx={{ fontWeight: "bold", color: "var(--first-color)" }}
+            sx={{ fontWeight: "bold", color: "var(--white-color)" }}
           >
             دسترسی سریع
           </Typography>
@@ -58,17 +61,20 @@ const Footer = () => {
               { text: "درباره ما", to: "/about-us" },
               { text: "مجله ها", to: "/magazines" },
               { text: "ورود", to: "/auth" },
+              { text: "خانه", to: "/" },
             ].map((link) => (
               <ListItem key={link.to} disableGutters>
                 <Link
                   component={RouterLink}
                   to={link.to}
                   sx={{
-                    color: "var(--first-color)",
+                    color: "var(--white-color)",
                     textDecoration: "none",
                     "&:hover": {
-                      textDecoration: "underline",
+                      textDecoration: "none",
+                      color: "var(--forth-color)",
                     },
+                    fontWeight: "bold",
                   }}
                 >
                   {link.text}
@@ -81,7 +87,7 @@ const Footer = () => {
           <Typography
             variant="h6"
             gutterBottom
-            sx={{ fontWeight: "bold", color: "var(--first-color)" }}
+            sx={{ fontWeight: "bold", color: "var(--white-color)" }}
           >
             برنامه هایی که درون آن هستیم
           </Typography>
@@ -119,14 +125,9 @@ const Footer = () => {
         </Grid>
       </Grid>
 
-      <Divider sx={{ my: 4, backgroundColor: "var(--first-color)" }} />
+      <Divider sx={{ my: 4, backgroundColor: "var(--white-color)" }} />
       <Link to={"/"} style={{ display: "flex", justifyContent: "center" }}>
-        <DarkModeIcon
-          sx={{
-            color: "white",
-            fontSize: "50px",
-          }}
-        />
+        <DarkMode sx={{ fontSize: "4.5rem", color: "var(--white-color)" }} />{" "}
       </Link>
     </Box>
   );
